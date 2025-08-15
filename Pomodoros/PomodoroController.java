@@ -19,7 +19,7 @@ public class PomodoroController {
         }
 
     @PostMapping("/start/{taskId}")
-    public String startPomodoro(@PathVariable long taskId, @RequestParam int duration){
+    public PomodoroDTO startPomodoro(@PathVariable long taskId, @RequestParam int duration){
         Task foundTask = taskRepo.findById(taskId).orElseThrow(() -> new RuntimeException("Task not found"));
         return pomodoroService.startPomodoro(foundTask ,duration);
     }

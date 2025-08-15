@@ -19,14 +19,14 @@ public class PomodoroService {
     private PomodoroDTOConverter pomodoroDTOConverter;
 
 
-    public String startPomodoro(Task task, int duration){
+    public PomodoroDTO startPomodoro(Task task, int duration){
         Pomodoro pomodoro = new Pomodoro();
         pomodoro.setStartTime(LocalDateTime.now());
         pomodoro.setDuration(duration);
         pomodoro.setStatus("IN_PROGRESS");
         pomodoro.setTask(task);
-        pomodoroRepo.save(pomodoro);
-        return "STARTED";
+        Pomodoro savedPom = pomodoroRepo.save(pomodoro);
+        return pomodoroDTOConverter.toDTOConverter(pomodoro);
     }
 
     public String stopPomodoro(long id){
