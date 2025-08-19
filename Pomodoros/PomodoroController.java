@@ -4,7 +4,7 @@ import com.example.TaskManagement.Tasks.Task;
 import com.example.TaskManagement.Tasks.TaskRepo;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController("Pomodoros")
 public class PomodoroController {
 
     PomodoroService pomodoroService;

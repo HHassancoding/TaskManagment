@@ -1,9 +1,13 @@
 package com.example.TaskManagement.Tasks;
 
+import com.example.TaskManagement.MicroTasks.MicroTask;
+import com.example.TaskManagement.User.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -16,6 +20,14 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "task")
+    private List<MicroTask> microTaskList = new ArrayList<>();
+
 
     @NonNull
     private String taskName;
