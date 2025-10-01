@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/microtasks")
+@RequestMapping("/api/microtasks")
 public class MicroTaskController {
 
     private final MicroTaskService microTaskService;

@@ -1,6 +1,7 @@
 package com.example.TaskManagement.MicroTasks;
 
 import com.example.TaskManagement.Tasks.Task;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class MicroTask {
 
     @ManyToOne
     @JoinColumn(name = "task_id")
+    @JsonBackReference
     private Task task;
 
     @NonNull

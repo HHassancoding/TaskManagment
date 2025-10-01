@@ -1,6 +1,7 @@
 package com.example.TaskManagement.User;
 
 import com.example.TaskManagement.Tasks.Task;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class User {
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,  orphanRemoval = true)
+    @JsonManagedReference
     private List<Task> task;
 
 
